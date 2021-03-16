@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>42yeah's Public Domain Resources (FPDR)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        @font-face {
+            font-family: noto;
+            src: url("fonts/noto-sans-sc-v12-latin_chinese-simplified-regular.woff") format("woff");
+            src: url("fonts/noto-sans-sc-v12-latin_chinese-simplified-regular.woff2") format("woff2");
+        }
+
+        html {
+            font-family: "Helvetica Neue", noto, Arial, Helvetica, sans-serif;
+            font-weight: 500;
+        }
+
+        body {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: black;
+            color: white;
+        }
+
+        h1 {
+            font-size: 20px;
+            font-weight: 1000;
+        }
+
+        .viewport {
+            width: 100%;
+            height: 100%;
+            overflow: scroll;
+        }
+
+        .container {
+            margin: 1em;
+        }
+
+        .grids {
+            margin-top: 1em;
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            grid-auto-rows: 1fr;
+        }
+
+        .grid {
+            border: 1px solid #77777777;
+            margin: -1px;
+            display: block;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s cubic-bezier(1, 0, 0, 1);
+            overflow-wrap: anywhere;
+            max-height: 300px;
+            overflow: hidden;
+        }
+
+        .grid:hover {
+            filter: brightness(0.5);
+        }
+
+        .grid:hover > * {
+            transition:  all 5.0s cubic-bezier(0.075, 0.82, 0.165, 1);
+            transform: scale(1.5);
+        }
+
+        .grid > :not(img) {
+            margin: 1em;
+        }
+
+        img {
+            height: 100%;
+        }
+
+        @media screen and (max-width: 800px) {
+            .grids {
+                margin-top: 1em;
+                display: grid;
+                grid-template-columns: auto auto auto;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .grids {
+                margin-top: 1em;
+                display: grid;
+                grid-template-columns: auto auto;
+            }
+
+            .grid {
+                max-height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="viewport">
+        <div class="container">
+            <h1>42yeah's Public Domain Resources / FPDR</h1>
+            <div class="grids">
+                <a href="res/yang1.jpg" class="grid">yang1</a>
+                <a href="res/yang2.jpg" class="grid">yang2</a>
+                <a href="res/yang3.jpg" class="grid">yang3</a>
+                <a href="res/yang4.jpg" class="grid">yang4</a>
+                <a href="res/yang5.jpg" class="grid">yang5</a>
+                <a href="res/yang6.jpg" class="grid">yang6</a>
+                <a href="res/yang7.jpg" class="grid">yang7</a>
+                <a href="res/box_and_floor.zip" class="grid"><p>Box And Floor model</p></a>
+                <a href="res/switch.jpg" class="grid">Switch</a>
+                <a href="res/42yeah.png" class="grid">42yeah</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        const grids = document.querySelectorAll(".grid");
+        for (let i = 0; i < grids.length; i++) {
+            const grid = grids[i];
+            if (grid.href.endsWith(".jpg") || grid.href.endsWith(".jpeg") || grid.href.endsWith(".png")) {
+                let img = "<img src=\"" + grid.href + "\" alt=\"" + grid.innerText + "\">";
+                grid.innerHTML = img;
+            }
+        }
+    </script>
+</body>
+</html>
